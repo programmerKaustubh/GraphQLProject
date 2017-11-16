@@ -1,0 +1,17 @@
+query allPlanetQuery{
+  allPlanets{
+  	planets{
+      name
+      diameter
+      rotationPeriod
+      orbitalPeriod
+      gravity
+      population
+      climates
+      terrains
+      surfaceWater
+      created
+      edited
+    }
+  }
+}

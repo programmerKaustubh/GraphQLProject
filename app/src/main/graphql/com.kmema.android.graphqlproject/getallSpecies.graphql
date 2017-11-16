@@ -1,0 +1,17 @@
+query allSpeciesQuery{
+  allSpecies{
+  	species{
+      name
+      classification
+      designation
+      averageHeight
+      averageLifespan
+      eyeColors
+      hairColors
+      skinColors
+      language
+      created
+      edited
+    }
+  }
+}

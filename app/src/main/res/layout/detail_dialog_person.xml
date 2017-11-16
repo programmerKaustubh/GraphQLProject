@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:fitsSystemWindows="true"
+        android:background="@color/colorGreenDark"
+        android:src="@drawable/ic_person"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewName" />
+    <TextView
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewName"
+        android:layout_below="@+id/textViewName"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewBirthyear" />
+    <TextView
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewBirthyear"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewEyeColor" />
+    <TextView
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewEyeColor"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewGender" />
+    <TextView
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewGender"
+        android:layout_below="@+id/textViewGender"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewHairColor" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewHairColor"
+        android:layout_below="@+id/textViewHairColor"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewHeight"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewHeight"
+        android:layout_below="@+id/textViewHeight"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewMass"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewMass"
+        android:layout_below="@+id/textViewMass"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewSkinColor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewSkinColor"
+        android:layout_below="@+id/textViewSkinColor"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewCreated"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewSkinColor"
+        android:layout_below="@+id/textViewCreated"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="kaustubh"
+        android:id="@+id/textViewEdited"/>
+</RelativeLayout>

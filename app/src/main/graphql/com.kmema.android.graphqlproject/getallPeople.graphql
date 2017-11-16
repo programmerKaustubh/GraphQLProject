@@ -1,0 +1,17 @@
+query allPeopleQuery{
+  allPeople{
+        people{
+          id
+          name
+          birthYear
+          eyeColor
+          gender
+          hairColor
+          height
+          mass
+          skinColor
+          created
+          edited
+        }
+  }
+  }
