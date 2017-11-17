@@ -52,7 +52,7 @@ public class MyPersonRecyclerViewAdapter extends RecyclerView.Adapter<MyPersonRe
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                personClickListner.personRecyclerViewClickListener(v, mValues.get(position));
                 Toast.makeText(context, ""+ mValues.get(position).name(), Toast.LENGTH_SHORT).show();
             }
         });

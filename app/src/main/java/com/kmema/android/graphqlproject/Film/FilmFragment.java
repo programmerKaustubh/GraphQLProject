@@ -1,11 +1,10 @@
 package com.kmema.android.graphqlproject.Film;
 
 import android.content.Context;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,10 +15,8 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllFilmQuery;
-import com.kmema.android.graphqlproject.AllPeopleQuery;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.dummy.DummyContent;
 import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
 
 import java.util.List;
@@ -32,7 +29,7 @@ import javax.annotation.Nonnull;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class FilmFragment extends Fragment {
+public class FilmFragment extends Fragment implements FilmClickListner{
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -94,6 +91,23 @@ public class FilmFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void filmRecyclerViewClickListener(View view, AllFilmQuery.Film film) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FilmDetailFragment filmDetailFragment = new FilmDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("title",film.title());
+        bundle.putString("episodeID", String.valueOf(film.episodeID()));
+        bundle.putString("openingCrawl",film.openingCrawl());
+        bundle.putString("director",film.director());
+        bundle.putString("producer", String.valueOf(film.producers()));
+        bundle.putString("releasedate",film.releaseDate());
+        bundle.putString("created",film.created());
+        bundle.putString("edited",film.edited());
+        filmDetailFragment.setArguments(bundle);
+        filmDetailFragment.show(fragmentManager,"filmDialog");
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -141,7 +155,7 @@ public class FilmFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            recyclerView.setAdapter(new MyFilmRecyclerViewAdapter(films, mListener));
+            recyclerView.setAdapter(new MyFilmRecyclerViewAdapter(films, getContext(),this));
         }
     }
 }

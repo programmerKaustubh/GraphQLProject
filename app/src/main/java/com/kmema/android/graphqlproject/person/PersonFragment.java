@@ -10,13 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllPeopleQuery;
-import com.kmema.android.graphqlproject.Film.FilmFragment;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
 import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
@@ -92,12 +91,22 @@ public class PersonFragment extends Fragment implements PersonClickListner{
     }
 
     @Override
-    public void personRecyclerViewClickListener(View view, int position) {
-        FragmentManager mFragmentManager = getFragmentManager();
-        FilmFragment filmFragment = new FilmFragment();
-        mFragmentManager.beginTransaction().replace(R.id.containerLayout, filmFragment, filmFragment.getTag()).commit();
-        Toast.makeText(this, "Position Film", Toast.LENGTH_SHORT).show();
-
+    public void personRecyclerViewClickListener(View view, AllPeopleQuery.person person) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        PersonDetailFragment personDetailFragment = new PersonDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("name",person.name());
+        bundle.putString("birthday",person.birthYear());
+        bundle.putString("eyecolor",person.eyeColor());
+        bundle.putString("gender",person.gender());
+        bundle.putString("haircolor",person.hairColor());
+        bundle.putString("height", String.valueOf(person.height()));
+        bundle.putString("mass", String.valueOf(person.mass()));
+        bundle.putString("skincolor",person.skinColor());
+        bundle.putString("created",person.created());
+        bundle.putString("edited",person.edited());
+        personDetailFragment.setArguments(bundle);
+        personDetailFragment.show(fragmentManager,"personDialog");
     }
 
     /**

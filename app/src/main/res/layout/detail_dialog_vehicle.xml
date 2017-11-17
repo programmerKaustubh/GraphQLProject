@@ -4,64 +4,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="4dp">
-
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewPlanet"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
-        android:background="@color/colorGreenDark"
+        android:background="@color/colorOrangeLight"
         android:fitsSystemWindows="true"
-        android:src="@drawable/ic_person"
-        android:contentDescription="@string/person_image" />
-
-
+        android:src="@drawable/ic_vehicle"
+        android:contentDescription="@string/vehicle_image" />
     <LinearLayout
-        android:paddingTop="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/imageViewPlanet"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
-
         <LinearLayout
+            android:paddingTop="4dp"
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name" />
             <TextView
-                android:id="@+id/textViewName"
+                style="@style/DetailViewText"
+                android:id="@+id/textViewNameVehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Name" />
         </LinearLayout>
-
         <LinearLayout
             android:paddingTop="4dp"
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <TextView
-                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/birthdate" />
-
+                android:text="@string/model" />
             <TextView
-                android:id="@+id/textViewBirthyear"
+                android:id="@+id/textViewModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/DetailViewText"
-                tools:text="BirthDate:" />
-
+                tools:text="Model"/>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vehicle_class" />
+            <TextView
+                android:id="@+id/textViewvehicleClass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/DetailViewText"
+                tools:text="Vehicle Class" />
         </LinearLayout>
 
         <LinearLayout
@@ -69,23 +75,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/eye_color" />
-
+                android:text="@string/manufacturers" />
             <TextView
-                android:id="@+id/textViewEyeColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/DetailViewText"
-                tools:text="EyesColor" />
-
-
+                android:id="@+id/textViewManufacturers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Manufacturers" />
         </LinearLayout>
-
         <LinearLayout
             android:paddingTop="4dp"
             android:layout_width="wrap_content"
@@ -93,65 +93,16 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gender" />
-
+                android:text="@string/cost_in_credits" />
             <TextView
-                android:id="@+id/textViewGender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/DetailViewText"
-                tools:text="Genderr" />
-
-
+                android:id="@+id/textViewCostInCredits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Cost In Credits" />
         </LinearLayout>
-
-        <LinearLayout
-            android:paddingTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hair_color" />
-
-            <TextView
-                android:id="@+id/textViewHairColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/DetailViewText"
-                tools:text="HairColor" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:paddingTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/height" />
-
-            <TextView
-                android:id="@+id/textViewHeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/DetailViewText"
-                tools:text="Height" />
-
-
-        </LinearLayout>
-
         <LinearLayout
             android:paddingTop="4dp"
             android:id="@+id/linearLayout4"
@@ -159,60 +110,118 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-
             <TextView
-                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mass" />
-
+                android:text="@string/length" />
             <TextView
-                android:id="@+id/textViewMass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/DetailViewText"
-                tools:text="Mass" />
-
+                android:id="@+id/textViewLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Length" />
         </LinearLayout>
+        <LinearLayout
+            android:paddingTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crew" />
 
+            <TextView
+                style="@style/DetailViewText"
+                android:id="@+id/textViewCrew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Crew" />
+        </LinearLayout>
 
         <LinearLayout
             android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
             <TextView
-                android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/skin_color" />
-
+                android:text="@string/passengers" />
             <TextView
-                android:id="@+id/textViewSkinColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/DetailViewText"
-                tools:text="SkinColor" />
+                android:id="@+id/textViewPassengers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Passengers" />
         </LinearLayout>
         <LinearLayout
             android:paddingTop="4dp"
-            android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_atmosphering_speed" />
+
+            <TextView
+                style="@style/DetailViewText"
+                android:id="@+id/textViewmaxAtmospheringSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Max Atmosphering Speed" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cargo_capacity" />
+
+            <TextView
+                style="@style/DetailViewText"
+                android:id="@+id/textViewcargoCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Cargo Capacity" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/consumables" />
+
+            <TextView
+                style="@style/DetailViewText"
+                android:id="@+id/textViewConsumables"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Consumables" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/created" />
             <TextView
-                android:id="@+id/textViewCreated"
+                style="@style/DetailViewText"
+                android:id="@+id/textViewCreatedVehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
-                tools:text="Created: " />
+                tools:text="Created" />
         </LinearLayout>
         <LinearLayout
             android:paddingTop="4dp"
@@ -220,15 +229,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edited" />
             <TextView
-                android:id="@+id/textViewEdited"
+                style="@style/DetailViewText"
+                android:id="@+id/textViewEditedVehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Edited" />
         </LinearLayout>
     </LinearLayout>

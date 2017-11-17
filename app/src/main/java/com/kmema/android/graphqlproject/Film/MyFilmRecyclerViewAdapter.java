@@ -1,10 +1,12 @@
 package com.kmema.android.graphqlproject.Film;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kmema.android.graphqlproject.AllFilmQuery;
 import com.kmema.android.graphqlproject.R;
@@ -20,11 +22,13 @@ import java.util.List;
 public class MyFilmRecyclerViewAdapter extends RecyclerView.Adapter<MyFilmRecyclerViewAdapter.ViewHolder> {
 
     private final List<AllFilmQuery.Film> mValues;
-    private final FilmFragment.OnListFragmentInteractionListener mListener;
+ Context context;
+    private final FilmClickListner filmClickListner;
 
-    public MyFilmRecyclerViewAdapter(List<AllFilmQuery.Film> items, FilmFragment.OnListFragmentInteractionListener listener) {
+    public MyFilmRecyclerViewAdapter(List<AllFilmQuery.Film> items, Context context, FilmClickListner filmClickListner) {
         mValues = items;
-        mListener = listener;
+        this.context=context;
+        this.filmClickListner = filmClickListner;
     }
 
     @Override
@@ -35,23 +39,20 @@ public class MyFilmRecyclerViewAdapter extends RecyclerView.Adapter<MyFilmRecycl
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.mFilmName.setText(mValues.get(position).title());
 
 
-/*
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                if (null != filmClickListner) {
+                    filmClickListner.filmRecyclerViewClickListener(v, mValues.get(position));
+                    Toast.makeText(context, ""+mValues.get(position).title(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-*/
     }
 
     @Override

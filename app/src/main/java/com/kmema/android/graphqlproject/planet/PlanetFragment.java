@@ -29,7 +29,7 @@ import javax.annotation.Nonnull;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class PlanetFragment extends Fragment {
+public class PlanetFragment extends Fragment implements  PlanetClickListener{
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -94,6 +94,11 @@ public class PlanetFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void planetRecyclerViewClickListener(View view, AllPlanetQuery.Planet planet) {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -106,7 +111,6 @@ public class PlanetFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
     }
     private void getPlanet(final View view) {
         MyApolloClient.getMyApolloClient().query(AllPlanetQuery.builder().build()).enqueue(
