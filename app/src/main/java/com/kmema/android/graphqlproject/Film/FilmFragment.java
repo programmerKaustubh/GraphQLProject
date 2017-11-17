@@ -96,14 +96,26 @@ public class FilmFragment extends Fragment implements FilmClickListner{
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FilmDetailFragment filmDetailFragment = new FilmDetailFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("title",film.title());
+        FilmModel filmModel = new FilmModel();
+
+        filmModel.setTitle(film.title());
+        filmModel.setEdited(String.valueOf(film.episodeID()));
+        filmModel.setOpeningCrawl(film.openingCrawl());
+        filmModel.setDirector(film.director());
+        filmModel.setProducers(String.valueOf(film.producers()));
+        filmModel.setReleaseDate(film.releaseDate());
+        filmModel.setCreated(film.created());
+        filmModel.setEdited(film.edited());
+        bundle.putSerializable("FilmModel",filmModel);
+
+        /*bundle.putString("title",film.title());
         bundle.putString("episodeID", String.valueOf(film.episodeID()));
         bundle.putString("openingCrawl",film.openingCrawl());
         bundle.putString("director",film.director());
         bundle.putString("producer", String.valueOf(film.producers()));
         bundle.putString("releasedate",film.releaseDate());
         bundle.putString("created",film.created());
-        bundle.putString("edited",film.edited());
+        bundle.putString("edited",film.edited());*/
         filmDetailFragment.setArguments(bundle);
         filmDetailFragment.show(fragmentManager,"filmDialog");
     }

@@ -3,8 +3,8 @@ package com.kmema.android.graphqlproject.planet;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +16,6 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllPlanetQuery;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.planet.dummy.DummyContent;
-import com.kmema.android.graphqlproject.planet.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
@@ -26,16 +24,13 @@ import javax.annotation.Nonnull;
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link }
  * interface.
  */
-public class PlanetFragment extends Fragment implements  PlanetClickListener{
+public class PlanetFragment extends Fragment implements PlanetClickListener {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 3;
-    private OnListFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -44,20 +39,9 @@ public class PlanetFragment extends Fragment implements  PlanetClickListener{
     public PlanetFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static PlanetFragment newInstance(int columnCount) {
-        PlanetFragment fragment = new PlanetFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -67,58 +51,49 @@ public class PlanetFragment extends Fragment implements  PlanetClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_planet_list, container, false);
-
         getPlanet(view);
-        // Set the adapter
-        /*      }*/
         return view;
     }
-
-
 
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        /*if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }*/
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
-
     @Override
     public void planetRecyclerViewClickListener(View view, AllPlanetQuery.Planet planet) {
 
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        PlanetDetailFragment planetDetailFragment = new PlanetDetailFragment();
+        Bundle bundle = new Bundle();
+        PlanetModel planetModel = new PlanetModel();
+        planetModel.setName(planet.name());
+        planetModel.setDiameter(String.valueOf(planet.diameter()));
+        planetModel.setRotationPeriod(String.valueOf(planet.rotationPeriod()));
+        planetModel.setOrbitalPeriod(String.valueOf(planet.orbitalPeriod()));
+        planetModel.setGravity(planet.gravity());
+        planetModel.setPopulation(String.valueOf(planet.population()));
+        planetModel.setClimates(String.valueOf(planet.climates()));
+        planetModel.setTerrains(String.valueOf(planet.terrains()));
+        planetModel.setSurfaceWater(String.valueOf(planet.surfaceWater()));
+        planetModel.setCreated(planet.created());
+        planetModel.setEdited(planet.edited());
+        bundle.putSerializable("PlanetModel",planetModel);
+        planetDetailFragment.setArguments(bundle);
+        planetDetailFragment.show(fragmentManager, "planetDialog");
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-    }
     private void getPlanet(final View view) {
         MyApolloClient.getMyApolloClient().query(AllPlanetQuery.builder().build()).enqueue(
                 new ApolloCall.Callback<AllPlanetQuery.Data>() {
                     @Override
                     public void onResponse(@Nonnull final Response<AllPlanetQuery.Data> response) {
-                        if(getActivity() == null)
-                        {
+                        if (getActivity() == null) {
                             return;
                         }
                         getActivity().runOnUiThread(new Runnable() {
@@ -128,10 +103,9 @@ public class PlanetFragment extends Fragment implements  PlanetClickListener{
                             }
                         });
                     }
-
                     @Override
                     public void onFailure(@Nonnull ApolloException e) {
-
+                        // TODO: 11/17/2017 handle onFailure condition
                     }
                 }
         );
@@ -143,7 +117,7 @@ public class PlanetFragment extends Fragment implements  PlanetClickListener{
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            recyclerView.setAdapter(new MyPlanetRecyclerViewAdapter(planets, mListener));
+            recyclerView.setAdapter(new MyPlanetRecyclerViewAdapter(planets, getContext(), this));
         }
-        }
+    }
 }

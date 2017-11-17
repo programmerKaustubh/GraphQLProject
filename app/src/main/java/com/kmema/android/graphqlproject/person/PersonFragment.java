@@ -95,16 +95,19 @@ public class PersonFragment extends Fragment implements PersonClickListner{
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         PersonDetailFragment personDetailFragment = new PersonDetailFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("name",person.name());
-        bundle.putString("birthday",person.birthYear());
-        bundle.putString("eyecolor",person.eyeColor());
-        bundle.putString("gender",person.gender());
-        bundle.putString("haircolor",person.hairColor());
-        bundle.putString("height", String.valueOf(person.height()));
-        bundle.putString("mass", String.valueOf(person.mass()));
-        bundle.putString("skincolor",person.skinColor());
-        bundle.putString("created",person.created());
-        bundle.putString("edited",person.edited());
+
+        PersonModel personModel = new PersonModel();
+        personModel.setName(person.name());
+        personModel.setBirthYear(person.birthYear());
+        personModel.setEyeColor(person.eyeColor());
+        personModel.setGender(person.gender());
+        personModel.setHairColor(person.hairColor());
+        personModel.setHeight(String.valueOf(person.height()));
+        personModel.setMass(String.valueOf(person.mass()));
+        personModel.setSkinColor(person.skinColor());
+        personModel.setCreated(person.created());
+        personModel.setEdited(person.edited());
+        bundle.putSerializable("PersonModel", personModel);
         personDetailFragment.setArguments(bundle);
         personDetailFragment.show(fragmentManager,"personDialog");
     }
@@ -121,7 +124,7 @@ public class PersonFragment extends Fragment implements PersonClickListner{
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+
     }
 
     private static final String TAG = "Person Fragment: ";

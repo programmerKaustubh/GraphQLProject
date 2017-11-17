@@ -3,6 +3,7 @@ package com.kmema.android.graphqlproject.Species;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,32 +25,21 @@ import javax.annotation.Nonnull;
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link }
  * interface.
  */
-public class SpeciesFragment extends Fragment {
+public class SpeciesFragment extends Fragment implements SpeciesClickListner{
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 3;
-    private OnListFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public SpeciesFragment() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static SpeciesFragment newInstance(int columnCount) {
-        SpeciesFragment fragment = new SpeciesFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -65,9 +55,7 @@ public class SpeciesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_species_list, container, false);
-
         getSpecies(view);
-        // Set the adapter
         return view;
     }
 
@@ -75,20 +63,12 @@ public class SpeciesFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-/*
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
-*/
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+
     }
 
     /**
@@ -101,10 +81,29 @@ public class SpeciesFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-//        void onListFragmentInteraction(DummyItem item);
+    @Override
+    public void SpeciesRecyclerViewClickListener(View view, AllSpeciesQuery.Species species) {
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        SpeciesDetailFragment speciesDetailFragment = new SpeciesDetailFragment();
+        SpeciesModel speciesModel = new SpeciesModel();
+        Bundle bundle = new Bundle();
+        speciesModel.setName(species.name());
+        speciesModel.setClassification(species.classification());
+        speciesModel.setDesignation(species.designation());
+        speciesModel.setAverageHeight(String.valueOf(species.averageHeight()));
+        speciesModel.setAverageLifespan(String.valueOf(species.averageLifespan()));
+        speciesModel.setEyeColors(String.valueOf(species.eyeColors()));
+        speciesModel.setHairColors(String.valueOf(species.hairColors()));
+        speciesModel.setSkinColors(String.valueOf(species.skinColors()));
+        speciesModel.setLanguage(species.language());
+        speciesModel.setCreated(species.created());
+        speciesModel.setEdited(species.edited());
+        bundle.putSerializable("SpeciesModel", speciesModel);
+        speciesDetailFragment.setArguments(bundle);
+        speciesDetailFragment.show(fragmentManager,"speciesDialog");
     }
+
 
     private static final String TAG = "Fragment Species";
     private void getSpecies(final View view) {
@@ -137,7 +136,7 @@ public class SpeciesFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            recyclerView.setAdapter(new MySpeciesRecyclerViewAdapter(species, mListener));
+            recyclerView.setAdapter(new MySpeciesRecyclerViewAdapter(species, context,this));
         }
     }
 }

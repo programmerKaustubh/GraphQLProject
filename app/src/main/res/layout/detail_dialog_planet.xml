@@ -38,7 +38,7 @@
 
             <TextView
                 style="@style/DetailViewText"
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewNamePlanet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Name" />
@@ -186,7 +186,7 @@
 
             <TextView
                 style="@style/DetailViewText"
-                android:id="@+id/textViewEdited"
+                android:id="@+id/textViewTerrains"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Terrains" />

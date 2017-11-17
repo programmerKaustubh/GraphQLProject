@@ -2,10 +2,12 @@ package com.kmema.android.graphqlproject.Film;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kmema.android.graphqlproject.R;
 
@@ -47,22 +49,23 @@ public class FilmDetailFragment extends android.support.v4.app.DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_dialog_film, container);
         unbinder = ButterKnife.bind(this, view);
-
-        textViewTitle.setText(getArguments().getString("title"));
+        FilmModel filmModel = (FilmModel) getArguments().getSerializable("FilmModel");
+        Log.e("FILM MODEL",filmModel.getOpeningCrawl());
+        textViewTitle.setText(filmModel.getTitle());
         textViewTitle.setSelected(true);
-        textViewEpisode.setText(getArguments().getString("episodeID"));
+        textViewEpisode.setText(filmModel.getEpisodeID());
         textViewEpisode.setSelected(true);
-        textViewOpeningCrawl.setText(getArguments().getString("openingCrawl"));
+        textViewOpeningCrawl.setText(filmModel.getOpeningCrawl());
         textViewOpeningCrawl.setSelected(true);
-        textViewDirector.setText(getArguments().getString("director"));
+        textViewDirector.setText(filmModel.getDirector());
         textViewDirector.setSelected(true);
-        textViewProducer.setText(getArguments().getString("producer"));
+        textViewProducer.setText(filmModel.getProducers());
         textViewProducer.setSelected(true);
-        textViewReleaseDate.setText(getArguments().getString("releasedate"));
+        textViewReleaseDate.setText(filmModel.getReleaseDate());
         textViewReleaseDate.setSelected(true);
-        textViewCreated.setText(getArguments().getString("created"));
+        textViewCreated.setText(filmModel.getCreated());
         textViewCreated.setSelected(true);
-        textViewEdited.setText(getArguments().getString("edited"));
+        textViewEdited.setText(filmModel.getEdited());
         textViewEdited.setSelected(true);
         return view;
     }
@@ -70,9 +73,15 @@ public class FilmDetailFragment extends android.support.v4.app.DialogFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         unbinder.unbind();
     }
 
-
+    @Override
+    public void onStart() {
+        if (getDialog() == null) {
+            return;
+        }
+        getDialog().getWindow().setWindowAnimations(R.style.DialogSlide);
+        super.onStart();
+    }
 }

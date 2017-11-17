@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="4dp">
     <ImageView
-        android:id="@+id/imageViewPlanet"
+        android:id="@+id/imageViewVehicle"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
@@ -16,7 +16,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewPlanet"
+        android:layout_below="@+id/imageViewVehicle"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
         <LinearLayout
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/model" />
             <TextView
-                android:id="@+id/textViewModel"
+                android:id="@+id/textViewModelVehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/DetailViewText"

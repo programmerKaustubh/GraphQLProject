@@ -53,25 +53,26 @@ public class PersonDetailFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_dialog_person, container);
         unbinder = ButterKnife.bind(this, view);
-        textViewName.setText(getArguments().getString("name"));
+        PersonModel personModel = (PersonModel) getArguments().getSerializable("PersonModel");
+        textViewName.setText(personModel.getName());
         textViewName.setSelected(true);
-        textViewBirthday.setText(getArguments().getString("birthday"));
+        textViewBirthday.setText(personModel.getBirthYear());
         textViewBirthday.setSelected(true);
-        textViewEyeColor.setText(getArguments().getString("eyecolor"));
+        textViewEyeColor.setText(personModel.getEyeColor());
         textViewEyeColor.setSelected(true);
-        textViewGender.setText(getArguments().getString("gender"));
+        textViewGender.setText(personModel.getGender());
         textViewGender.setSelected(true);
-        textViewHairColor.setText(getArguments().getString("haircolor"));
+        textViewHairColor.setText(personModel.getHairColor());
         textViewHairColor.setSelected(true);
-        textViewHeight.setText(getArguments().getString("height"));
+        textViewHeight.setText(personModel.getHeight());
         textViewHeight.setSelected(true);
-        textViewMass.setText(getArguments().getString("mass"));
+        textViewMass.setText(personModel.getMass());
         textViewMass.setSelected(true);
-        textViewSkinColor.setText(getArguments().getString("skincolor"));
+        textViewSkinColor.setText(personModel.getSkinColor());
         textViewSkinColor.setSelected(true);
-        textViewCreated.setText(getArguments().getString("created"));
+        textViewCreated.setText(personModel.getCreated());
         textViewCreated.setSelected(true);
-        textViewEdited.setText(getArguments().getString("edited"));
+        textViewEdited.setText(personModel.getEdited());
         textViewEdited.setSelected(true);
         return view;
     }
@@ -80,5 +81,15 @@ public class PersonDetailFragment extends DialogFragment {
     public void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onStart() {
+        if(getDialog()==null)
+        {
+            return;
+        }
+        getDialog().getWindow().setWindowAnimations(R.style.DialogSlide);
+        super.onStart();
     }
 }
