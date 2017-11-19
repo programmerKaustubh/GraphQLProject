@@ -1,14 +1,20 @@
 package com.kmema.android.graphqlproject.vehicle;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Toast;
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
@@ -16,7 +22,7 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllVehicleQuery;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
+//import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
@@ -44,6 +50,7 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -57,18 +64,17 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
         return view;
     }
 
-
-
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-     /*   if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }*/
+        android.support.v7.app.ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorRed)));
+            actionBar.setTitle("Vehicle Fragment");
+        }
+        Window window = getActivity().getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorRedLight));
+
     }
 
     @Override
@@ -127,8 +133,18 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
                 });
             }
             @Override
-            public void onFailure(@Nonnull ApolloException e) {
-
+            public void onFailure(@Nonnull final ApolloException e) {
+                if(getActivity() == null)
+                {
+                    return;
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection"+ e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+                Log.e(TAG, "ON RESPONSE ERROR" + e.getLocalizedMessage());
             }
         });
 

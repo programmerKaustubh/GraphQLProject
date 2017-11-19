@@ -53,7 +53,6 @@ public class VehicleDetailFragment extends DialogFragment {
     @BindView(R.id.textViewConsumables)
     TextView textViewConsumables;
 
-
     @BindView(R.id.textViewCreatedVehicle)
     TextView textViewCreated;
 
@@ -96,7 +95,6 @@ public class VehicleDetailFragment extends DialogFragment {
         textViewEdited.setText(vehicleDataModel.getEdited());
         return view;
     }
-
     @Override
     public void onStart() {
         if(getDialog()==null)
@@ -106,7 +104,6 @@ public class VehicleDetailFragment extends DialogFragment {
         getDialog().getWindow().setWindowAnimations(R.style.DialogSlide);
         super.onStart();
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();

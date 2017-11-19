@@ -53,26 +53,26 @@ public class PersonDetailFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_dialog_person, container);
         unbinder = ButterKnife.bind(this, view);
-        PersonModel personModel = (PersonModel) getArguments().getSerializable("PersonModel");
-        textViewName.setText(personModel.getName());
+        PersonDataModel personDataModel = (PersonDataModel) getArguments().getSerializable("PersonDataModel");
+        textViewName.setText(personDataModel.getName());
         textViewName.setSelected(true);
-        textViewBirthday.setText(personModel.getBirthYear());
+        textViewBirthday.setText(personDataModel.getBirthYear());
         textViewBirthday.setSelected(true);
-        textViewEyeColor.setText(personModel.getEyeColor());
+        textViewEyeColor.setText(personDataModel.getEyeColor());
         textViewEyeColor.setSelected(true);
-        textViewGender.setText(personModel.getGender());
+        textViewGender.setText(personDataModel.getGender());
         textViewGender.setSelected(true);
-        textViewHairColor.setText(personModel.getHairColor());
+        textViewHairColor.setText(personDataModel.getHairColor());
         textViewHairColor.setSelected(true);
-        textViewHeight.setText(personModel.getHeight());
+        textViewHeight.setText(personDataModel.getHeight());
         textViewHeight.setSelected(true);
-        textViewMass.setText(personModel.getMass());
+        textViewMass.setText(personDataModel.getMass());
         textViewMass.setSelected(true);
-        textViewSkinColor.setText(personModel.getSkinColor());
+        textViewSkinColor.setText(personDataModel.getSkinColor());
         textViewSkinColor.setSelected(true);
-        textViewCreated.setText(personModel.getCreated());
+        textViewCreated.setText(personDataModel.getCreated());
         textViewCreated.setSelected(true);
-        textViewEdited.setText(personModel.getEdited());
+        textViewEdited.setText(personDataModel.getEdited());
         textViewEdited.setSelected(true);
         return view;
     }

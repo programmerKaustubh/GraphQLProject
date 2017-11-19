@@ -1,21 +1,25 @@
 package com.kmema.android.graphqlproject.Species;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Toast;
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllSpeciesQuery;
+import com.kmema.android.graphqlproject.Film.FilmDetailFragment;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
 import java.util.List;
@@ -23,10 +27,8 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 /**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link }
- * interface.
+ * A fragment representing a list of Items @{@link SpeciesDataModel } and @{@link SpeciesDetailFragment}.
+ *
  */
 public class SpeciesFragment extends Fragment implements SpeciesClickListner{
 
@@ -45,7 +47,7 @@ public class SpeciesFragment extends Fragment implements SpeciesClickListner{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRetainInstance(true);
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -63,6 +65,13 @@ public class SpeciesFragment extends Fragment implements SpeciesClickListner{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        android.support.v7.app.ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorBlueLight)));
+            actionBar.setTitle("Species Fragment");
+        }
+        Window window = getActivity().getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorBlue));
     }
 
     @Override
@@ -86,20 +95,20 @@ public class SpeciesFragment extends Fragment implements SpeciesClickListner{
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         SpeciesDetailFragment speciesDetailFragment = new SpeciesDetailFragment();
-        SpeciesModel speciesModel = new SpeciesModel();
+        SpeciesDataModel speciesDataModel = new SpeciesDataModel();
         Bundle bundle = new Bundle();
-        speciesModel.setName(species.name());
-        speciesModel.setClassification(species.classification());
-        speciesModel.setDesignation(species.designation());
-        speciesModel.setAverageHeight(String.valueOf(species.averageHeight()));
-        speciesModel.setAverageLifespan(String.valueOf(species.averageLifespan()));
-        speciesModel.setEyeColors(String.valueOf(species.eyeColors()));
-        speciesModel.setHairColors(String.valueOf(species.hairColors()));
-        speciesModel.setSkinColors(String.valueOf(species.skinColors()));
-        speciesModel.setLanguage(species.language());
-        speciesModel.setCreated(species.created());
-        speciesModel.setEdited(species.edited());
-        bundle.putSerializable("SpeciesModel", speciesModel);
+        speciesDataModel.setName(species.name());
+        speciesDataModel.setClassification(species.classification());
+        speciesDataModel.setDesignation(species.designation());
+        speciesDataModel.setAverageHeight(String.valueOf(species.averageHeight()));
+        speciesDataModel.setAverageLifespan(String.valueOf(species.averageLifespan()));
+        speciesDataModel.setEyeColors(String.valueOf(species.eyeColors()));
+        speciesDataModel.setHairColors(String.valueOf(species.hairColors()));
+        speciesDataModel.setSkinColors(String.valueOf(species.skinColors()));
+        speciesDataModel.setLanguage(species.language());
+        speciesDataModel.setCreated(species.created());
+        speciesDataModel.setEdited(species.edited());
+        bundle.putSerializable("SpeciesDataModel", speciesDataModel);
         speciesDetailFragment.setArguments(bundle);
         speciesDetailFragment.show(fragmentManager,"speciesDialog");
     }
@@ -124,8 +133,18 @@ public class SpeciesFragment extends Fragment implements SpeciesClickListner{
             }
 
             @Override
-            public void onFailure(@Nonnull ApolloException e) {
-                Log.e(TAG,"ERROR DATA RESPONSE");
+            public void onFailure(@Nonnull final ApolloException e) {
+                if(getActivity() == null)
+                {
+                    return;
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection"+ e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+                Log.e(TAG, "ON RESPONSE ERROR" + e.getLocalizedMessage());
             }
         });
 

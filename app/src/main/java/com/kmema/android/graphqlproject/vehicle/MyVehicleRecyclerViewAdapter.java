@@ -9,12 +9,10 @@ import android.widget.TextView;
 
 import com.kmema.android.graphqlproject.AllVehicleQuery;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
-
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link VehicleDataModel} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link VehicleDetailFragment} and makes a call to the
  * specified {@link VehicleClickListner}.
  * TODO: Replace the implementation with code for your data type.
  */

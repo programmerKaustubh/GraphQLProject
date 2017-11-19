@@ -10,24 +10,23 @@ import android.widget.Toast;
 
 import com.kmema.android.graphqlproject.AllFilmQuery;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link FilmFragment.OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
+ * {@link RecyclerView.Adapter} that can display a {@link FilmDetailFragment} and makes a call to the
+ * specified {@link FilmClickListner}.
+ *
  */
 public class MyFilmRecyclerViewAdapter extends RecyclerView.Adapter<MyFilmRecyclerViewAdapter.ViewHolder> {
 
     private final List<AllFilmQuery.Film> mValues;
- Context context;
+    Context context;
     private final FilmClickListner filmClickListner;
 
     public MyFilmRecyclerViewAdapter(List<AllFilmQuery.Film> items, Context context, FilmClickListner filmClickListner) {
         mValues = items;
-        this.context=context;
+        this.context = context;
         this.filmClickListner = filmClickListner;
     }
 
@@ -42,14 +41,12 @@ public class MyFilmRecyclerViewAdapter extends RecyclerView.Adapter<MyFilmRecycl
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.mFilmName.setText(mValues.get(position).title());
-
-
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != filmClickListner) {
                     filmClickListner.filmRecyclerViewClickListener(v, mValues.get(position));
-                    Toast.makeText(context, ""+mValues.get(position).title(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "" + mValues.get(position).title(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -61,17 +58,14 @@ public class MyFilmRecyclerViewAdapter extends RecyclerView.Adapter<MyFilmRecycl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mFilmName;
-        public AllFilmQuery.Film mItem;
-
-        public ViewHolder(View view) {
+        final View mView;
+        final TextView mFilmName;
+        AllFilmQuery.Film mItem;
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mFilmName = view.findViewById(R.id.textViewFilmGrid);
-
         }
-
         @Override
         public String toString() {
             return super.toString() + " '" + mFilmName.getText() + "'";

@@ -64,38 +64,39 @@ public class SpeciesDetailFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.detail_dialog_species, container);
         unbinder = ButterKnife.bind(this, view);
 
-        SpeciesModel speciesModel = (SpeciesModel) getArguments().getSerializable("SpeciesModel");
-        textViewSpeciesName.setText(speciesModel.getName());
+        SpeciesDataModel speciesDataModel = (SpeciesDataModel) getArguments().getSerializable("SpeciesDataModel");
+
+        textViewSpeciesName.setText(speciesDataModel.getName());
         textViewSpeciesName.setSelected(true);
 
-        textViewClassification.setText(speciesModel.getClassification());
+        textViewClassification.setText(speciesDataModel.getClassification());
         textViewClassification.setSelected(true);
 
-        textViewDesignation.setText(speciesModel.getDesignation());
+        textViewDesignation.setText(speciesDataModel.getDesignation());
         textViewDesignation.setSelected(true);
 
-        textViewAverageHeight.setText(speciesModel.getAverageHeight());
+        textViewAverageHeight.setText(speciesDataModel.getAverageHeight());
         textViewAverageHeight.setSelected(true);
 
-        textViewAverageLifeSpan.setText(speciesModel.getAverageLifespan());
+        textViewAverageLifeSpan.setText(speciesDataModel.getAverageLifespan());
         textViewAverageLifeSpan.setSelected(true);
 
-        textViewEyeColor.setText(speciesModel.getEyeColors());
+        textViewEyeColor.setText(speciesDataModel.getEyeColors());
         textViewEyeColor.setSelected(true);
 
-        textViewSkinColorSpecies.setText(speciesModel.getSkinColors());
+        textViewSkinColorSpecies.setText(speciesDataModel.getSkinColors());
         textViewSkinColorSpecies.setSelected(true);
 
-        textViewHairColor.setText(speciesModel.getHairColors());
+        textViewHairColor.setText(speciesDataModel.getHairColors());
         textViewHairColor.setSelected(true);
 
-        textViewLanguage.setText(speciesModel.getLanguage());
+        textViewLanguage.setText(speciesDataModel.getLanguage());
         textViewLanguage.setSelected(true);
 
-        textViewCreatedSpecies.setText(speciesModel.getCreated());
+        textViewCreatedSpecies.setText(speciesDataModel.getCreated());
         textViewCreatedSpecies.setSelected(true);
 
-        textViewEditedSpecies.setText(speciesModel.getEdited());
+        textViewEditedSpecies.setText(speciesDataModel.getEdited());
         textViewEditedSpecies.setSelected(true);
         return view;
     }

@@ -1,10 +1,5 @@
 package com.kmema.android.graphqlproject.person;
-
-import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
-import android.support.v7.widget.AlertDialogLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,28 +8,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kmema.android.graphqlproject.AllPeopleQuery;
-import com.kmema.android.graphqlproject.person.PersonFragment.OnListFragmentInteractionListener;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
+ * {@link RecyclerView.Adapter} that can display a {@link PersonDetailFragment} and makes a call to the
+ * specified {@link PersonClickListner}.
  */
 public class MyPersonRecyclerViewAdapter extends RecyclerView.Adapter<MyPersonRecyclerViewAdapter.ViewHolder> {
 
     private final List<AllPeopleQuery.person> mValues;
-    private final OnListFragmentInteractionListener mListener;
     private Context context;
-    PersonClickListner personClickListner;
-    public MyPersonRecyclerViewAdapter(List<AllPeopleQuery.person> items, OnListFragmentInteractionListener listener, Context context, PersonClickListner personClickListner) {
+    private PersonClickListner personClickListner;
+    public MyPersonRecyclerViewAdapter(List<AllPeopleQuery.person> items, Context context) {
         mValues = items;
-        mListener = listener;
         this.context = context;
-        this.personClickListner = personClickListner;
+        this.personClickListner = (PersonClickListner)context;
     }
 
     @Override
@@ -65,11 +55,11 @@ public class MyPersonRecyclerViewAdapter extends RecyclerView.Adapter<MyPersonRe
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mPersonName;
-        public AllPeopleQuery.person mItem;
+        final View mView;
+        final TextView mPersonName;
+        AllPeopleQuery.person mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mPersonName = view.findViewById(R.id.textViewPersonGrid);

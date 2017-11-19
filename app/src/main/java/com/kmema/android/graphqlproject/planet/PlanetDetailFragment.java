@@ -58,29 +58,29 @@ public class PlanetDetailFragment extends DialogFragment {
 
         View view = inflater.inflate(R.layout.detail_dialog_planet, container);
         unbinder = ButterKnife.bind(this, view);
-        PlanetModel planetModel = (PlanetModel) getArguments().getSerializable("PlanetModel");
+        PlanetDataModel planetDataModel = (PlanetDataModel) getArguments().getSerializable("PlanetDataModel");
 
-        textViewNamePlanet.setText(planetModel.getName());
+        textViewNamePlanet.setText(planetDataModel.getName());
         textViewNamePlanet.setSelected(true);
-        textViewDiameter.setText(planetModel.getDiameter());
+        textViewDiameter.setText(planetDataModel.getDiameter());
         textViewDiameter.setSelected(true);
-        textViewRotationPeroid.setText(planetModel.getRotationPeriod());
+        textViewRotationPeroid.setText(planetDataModel.getRotationPeriod());
         textViewRotationPeroid.setSelected(true);
-        textViewOrbitalPeriod.setText(planetModel.getOrbitalPeriod());
+        textViewOrbitalPeriod.setText(planetDataModel.getOrbitalPeriod());
         textViewOrbitalPeriod.setSelected(true);
-        textViewGravity.setText(planetModel.getGravity());
+        textViewGravity.setText(planetDataModel.getGravity());
         textViewGravity.setSelected(true);
-        textViewPopulation.setText(planetModel.getPopulation());
+        textViewPopulation.setText(planetDataModel.getPopulation());
         textViewPopulation.setSelected(true);
-        textViewClimate.setText(planetModel.getClimates());
+        textViewClimate.setText(planetDataModel.getClimates());
         textViewClimate.setSelected(true);
-        textViewTeerrains.setText(planetModel.getTerrains());
+        textViewTeerrains.setText(planetDataModel.getTerrains());
         textViewTeerrains.setSelected(true);
-        textViewSurfaceWater.setText(planetModel.getSurfaceWater());
+        textViewSurfaceWater.setText(planetDataModel.getSurfaceWater());
         textViewSurfaceWater.setSelected(true);
-        textViewCreatedPlanet.setText(planetModel.getCreated());
+        textViewCreatedPlanet.setText(planetDataModel.getCreated());
         textViewCreatedPlanet.setSelected(true);
-        textViewEditedPlanet.setText(planetModel.getEdited());
+        textViewEditedPlanet.setText(planetDataModel.getEdited());
         textViewEditedPlanet.setSelected(true);
         return view;
     }

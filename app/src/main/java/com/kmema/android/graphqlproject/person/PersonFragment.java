@@ -1,42 +1,44 @@
 package com.kmema.android.graphqlproject.person;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Toast;
 
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllPeopleQuery;
+import com.kmema.android.graphqlproject.Film.FilmDataModel;
+import com.kmema.android.graphqlproject.Film.FilmDetailFragment;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
-import com.kmema.android.graphqlproject.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 import javax.annotation.Nonnull;
 
 /**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
+ * A fragment representing a list of Items @{@link PersonDataModel } and @{@link PersonDetailFragment}.
+ *
  */
-public class PersonFragment extends Fragment implements PersonClickListner{
+public class PersonFragment extends Fragment implements PersonClickListner {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 3;
-    private OnListFragmentInteractionListener mListener;
+    private static final String TAG = "Person Fragment: ";
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -45,20 +47,10 @@ public class PersonFragment extends Fragment implements PersonClickListner{
     public PersonFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static PersonFragment newInstance(int columnCount) {
-        PersonFragment fragment = new PersonFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRetainInstance(true);
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -76,18 +68,18 @@ public class PersonFragment extends Fragment implements PersonClickListner{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        /*if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }*/
+        android.support.v7.app.ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorGreen)));
+            actionBar.setTitle("Person Fragment");
+        }
+        Window window = getActivity().getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorGreenDark));
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     @Override
@@ -95,47 +87,28 @@ public class PersonFragment extends Fragment implements PersonClickListner{
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         PersonDetailFragment personDetailFragment = new PersonDetailFragment();
         Bundle bundle = new Bundle();
-
-        PersonModel personModel = new PersonModel();
-        personModel.setName(person.name());
-        personModel.setBirthYear(person.birthYear());
-        personModel.setEyeColor(person.eyeColor());
-        personModel.setGender(person.gender());
-        personModel.setHairColor(person.hairColor());
-        personModel.setHeight(String.valueOf(person.height()));
-        personModel.setMass(String.valueOf(person.mass()));
-        personModel.setSkinColor(person.skinColor());
-        personModel.setCreated(person.created());
-        personModel.setEdited(person.edited());
-        bundle.putSerializable("PersonModel", personModel);
+        PersonDataModel personDataModel = new PersonDataModel();
+        personDataModel.setName(person.name());
+        personDataModel.setBirthYear(person.birthYear());
+        personDataModel.setEyeColor(person.eyeColor());
+        personDataModel.setGender(person.gender());
+        personDataModel.setHairColor(person.hairColor());
+        personDataModel.setHeight(String.valueOf(person.height()));
+        personDataModel.setMass(String.valueOf(person.mass()));
+        personDataModel.setSkinColor(person.skinColor());
+        personDataModel.setCreated(person.created());
+        personDataModel.setEdited(person.edited());
+        bundle.putSerializable("PersonDataModel", personDataModel);
         personDetailFragment.setArguments(bundle);
-        personDetailFragment.show(fragmentManager,"personDialog");
+        personDetailFragment.show(fragmentManager, "personDialog");
     }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-
-    }
-
-    private static final String TAG = "Person Fragment: ";
 
     void getPeople(final View view) {
         MyApolloClient.getMyApolloClient().query(
                 AllPeopleQuery.builder().build()).enqueue(new ApolloCall.Callback<AllPeopleQuery.Data>() {
             @Override
             public void onResponse(@Nonnull final Response<AllPeopleQuery.Data> response) {
-                if(getActivity()==null)
-                {
+                if (getActivity() == null) {
                     return;
                 }
                 getActivity().runOnUiThread(new Runnable() {
@@ -147,8 +120,17 @@ public class PersonFragment extends Fragment implements PersonClickListner{
             }
 
             @Override
-            public void onFailure(@Nonnull ApolloException e) {
-                Log.e(TAG, "ON RESPONSE ERROR" + e.getMessage());
+            public void onFailure(@Nonnull final ApolloException e) {
+                if (getActivity() == null) {
+                    return;
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+                Log.e(TAG, "ON RESPONSE ERROR" + e.getLocalizedMessage());
             }
         });
     }
@@ -159,7 +141,7 @@ public class PersonFragment extends Fragment implements PersonClickListner{
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            recyclerView.setAdapter(new MyPersonRecyclerViewAdapter(people, mListener,getContext(),this));
+            recyclerView.setAdapter(new MyPersonRecyclerViewAdapter(people, getContext()));
         }
     }
 }

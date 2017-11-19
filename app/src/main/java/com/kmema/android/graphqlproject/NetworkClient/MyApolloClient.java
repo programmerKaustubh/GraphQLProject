@@ -17,12 +17,10 @@ public class MyApolloClient {
                 .addInterceptor(loggingInterceptor)
                 .build();
 
-        ApolloClient myApolloClient = ApolloClient.builder()
+        return ApolloClient.builder()
                 .serverUrl(BASE_URL)
                 .okHttpClient(okHttpClient)
                 .build();
-
-        return myApolloClient;
     }
 
 }
