@@ -72,10 +72,6 @@ public class FilmFragment extends Fragment implements FilmClickListner{
         Window window = getActivity().getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorRed));
     }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
 
     @Override
     public void filmRecyclerViewClickListener(View view, AllFilmQuery.Film film) {

@@ -8,6 +8,6 @@ import com.kmema.android.graphqlproject.AllSpeciesQuery;
  * Created by kmema on 11/17/2017.
  */
 
-public interface SpeciesClickListner  {
+interface SpeciesClickListner  {
     void SpeciesRecyclerViewClickListener(View view, AllSpeciesQuery.Species species);
 }

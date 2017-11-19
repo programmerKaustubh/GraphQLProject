@@ -1,7 +1,7 @@
 package com.kmema.android.graphqlproject.person;
 
 import java.io.Serializable;
-public class PersonDataModel implements Serializable {
+class PersonDataModel implements Serializable {
     private String id;
     private String name;
     private String birthYear;

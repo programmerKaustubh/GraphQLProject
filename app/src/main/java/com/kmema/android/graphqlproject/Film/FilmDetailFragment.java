@@ -16,6 +16,7 @@ public class FilmDetailFragment extends android.support.v4.app.DialogFragment {
 
 
     @BindView(R.id.textViewTitle)
+
     TextView textViewTitle;
 
     @BindView(R.id.textViewEpisode)

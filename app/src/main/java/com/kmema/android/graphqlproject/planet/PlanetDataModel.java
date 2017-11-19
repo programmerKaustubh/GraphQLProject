@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by kmema on 11/17/2017.
  */
 
-public class PlanetDataModel implements Serializable {
+class PlanetDataModel implements Serializable {
     private String name;
     private String diameter;
     private String rotationPeriod;

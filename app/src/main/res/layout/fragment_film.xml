@@ -9,6 +9,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:contentDescription="@string/film_image"
             android:src="@drawable/ic_film"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"

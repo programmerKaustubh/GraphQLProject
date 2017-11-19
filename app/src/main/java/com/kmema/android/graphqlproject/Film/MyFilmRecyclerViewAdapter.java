@@ -21,7 +21,7 @@ import java.util.List;
 public class MyFilmRecyclerViewAdapter extends RecyclerView.Adapter<MyFilmRecyclerViewAdapter.ViewHolder> {
 
     private final List<AllFilmQuery.Film> mValues;
-    Context context;
+    private final Context context;
     private final FilmClickListner filmClickListner;
 
     public MyFilmRecyclerViewAdapter(List<AllFilmQuery.Film> items, Context context, FilmClickListner filmClickListner) {

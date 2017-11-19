@@ -3,6 +3,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import com.kmema.android.graphqlproject.Film.FilmFragment;
 import com.kmema.android.graphqlproject.Species.SpeciesFragment;
@@ -12,8 +15,10 @@ import com.kmema.android.graphqlproject.vehicle.VehicleFragment;
 import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NodeClickListener {
     private android.support.v4.app.FragmentManager mFragmentManager;
-    ArrayList<Integer> colorList;
+    private ArrayList<Integer> colorList;
     private static final String CURRENT_FRAGMENT_KEY = "currentFragment";
+    private static final String CURRENT_FRAGMENT_NUMBER_KEY = "currentFragmentNumber";
+    private static int currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +29,10 @@ public class MainActivity extends AppCompatActivity implements NodeClickListener
         if (savedInstanceState != null) {
             android.support.v4.app.Fragment fragment = getSupportFragmentManager().getFragment(savedInstanceState, CURRENT_FRAGMENT_KEY);
             mFragmentManager.beginTransaction().replace(R.id.containerLayout, fragment).commit();
+            currentFragment = savedInstanceState.getInt(CURRENT_FRAGMENT_NUMBER_KEY);
         } else {
             updateCurrentFragment(0);
+
         }
         colorList = new ArrayList<>();
         colorList.add(0, R.color.colorGreen);
@@ -57,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements NodeClickListener
     public void onSaveInstanceState(Bundle outState) {
         android.support.v4.app.Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.containerLayout);
         getSupportFragmentManager().putFragment(outState, CURRENT_FRAGMENT_KEY, fragment);
+        outState.putInt(CURRENT_FRAGMENT_NUMBER_KEY,currentFragment);
         super.onSaveInstanceState(outState);
     }
 
@@ -65,23 +73,47 @@ public class MainActivity extends AppCompatActivity implements NodeClickListener
             case 0:
                 PersonFragment personFragment = new PersonFragment();
                 mFragmentManager.beginTransaction().replace(R.id.containerLayout, personFragment, "personfragment").commit();
+                currentFragment = 0;
                 break;
             case 1:
                 VehicleFragment vehicleFragment = new VehicleFragment();
                 mFragmentManager.beginTransaction().replace(R.id.containerLayout, vehicleFragment, "vehiclefragment").commit();
+                currentFragment = 1;
                 break;
             case 2:
                 FilmFragment filmFragment = new FilmFragment();
                 mFragmentManager.beginTransaction().replace(R.id.containerLayout, filmFragment, "filmfragment").commit();
+                currentFragment = 2;
                 break;
             case 3:
                 SpeciesFragment speciesFragment = new SpeciesFragment();
                 mFragmentManager.beginTransaction().replace(R.id.containerLayout, speciesFragment, "speciesfragment").commit();
+                currentFragment = 3;
                 break;
             case 4:
                 PlanetFragment planetFragment = new PlanetFragment();
                 mFragmentManager.beginTransaction().replace(R.id.containerLayout, planetFragment, "planetfragment").commit();
+                currentFragment = 4;
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return  true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.refreshButton:
+                updateCurrentFragment(currentFragment);
+                break;
+        }
+        return true;
     }
 }

@@ -26,10 +26,10 @@ public class MySpeciesRecyclerViewAdapter extends RecyclerView.Adapter<MySpecies
      * to the activity and potentially other fragments contained in that
      * activity.
      */
-    private SpeciesClickListner speciesClickListner;
-    private Context context;
+    private final SpeciesClickListner speciesClickListner;
+    private final Context context;
 
-    public MySpeciesRecyclerViewAdapter(List<AllSpeciesQuery.Species> items, Context context, SpeciesClickListner speciesClickListner) {
+    MySpeciesRecyclerViewAdapter(List<AllSpeciesQuery.Species> items, Context context, SpeciesClickListner speciesClickListner) {
         mValues = items;
         this.context = context;
         this.speciesClickListner = speciesClickListner;
@@ -39,7 +39,7 @@ public class MySpeciesRecyclerViewAdapter extends RecyclerView.Adapter<MySpecies
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_species, parent, false);
-        return new ViewHolder(view);
+                return new ViewHolder(view);
     }
 
     @Override

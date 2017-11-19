@@ -78,11 +78,6 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-    @Override
     public void VehicleRecyclerViewClickListener(View view, AllVehicleQuery.Vehicle vehicle) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         VehicleDetailFragment vehicleDetailFragment = new VehicleDetailFragment();

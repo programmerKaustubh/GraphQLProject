@@ -44,5 +44,12 @@
     <string name="cargo_capacity">Cargo Capacity:</string>
     <string name="consumables">Consumables:</string>
     <string name="model">Model:</string>
+    <string name="film_image">FILM IMAGE</string>
+    <string name="person">Person</string>
+    <string name="planet">planet</string>
+    <string name="species">Species</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="average_height">Average Height:</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

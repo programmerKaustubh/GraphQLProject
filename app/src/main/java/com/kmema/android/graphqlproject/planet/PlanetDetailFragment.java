@@ -24,10 +24,11 @@ public class PlanetDetailFragment extends DialogFragment {
     TextView textViewDiameter;
 
     @BindView(R.id.textViewRotationPeriod)
+
     TextView textViewRotationPeroid;
 
     @BindView(R.id.textViewOrbitalPeriod)
-    TextView textViewOrbitalPeriod;
+     TextView textViewOrbitalPeriod;
 
     @BindView(R.id.textViewGravity)
     TextView textViewGravity;
@@ -50,7 +51,7 @@ public class PlanetDetailFragment extends DialogFragment {
     @BindView(R.id.textViewEditedPlanet)
     TextView textViewEditedPlanet;
 
-    Unbinder unbinder;
+    private Unbinder unbinder;
 
     @Nullable
     @Override

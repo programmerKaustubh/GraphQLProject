@@ -19,12 +19,12 @@ import java.util.List;
 public class MyPersonRecyclerViewAdapter extends RecyclerView.Adapter<MyPersonRecyclerViewAdapter.ViewHolder> {
 
     private final List<AllPeopleQuery.person> mValues;
-    private Context context;
-    private PersonClickListner personClickListner;
-    public MyPersonRecyclerViewAdapter(List<AllPeopleQuery.person> items, Context context) {
+    private final Context context;
+    private final PersonClickListner personClickListner;
+    public MyPersonRecyclerViewAdapter(List<AllPeopleQuery.person> items, Context context, PersonFragment personFragment) {
         mValues = items;
         this.context = context;
-        this.personClickListner = (PersonClickListner)context;
+        this.personClickListner = personFragment;
     }
 
     @Override

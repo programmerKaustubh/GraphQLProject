@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by kmema on 11/17/2017.
  */
 
-public class VehicleDataModel implements Serializable {
+class VehicleDataModel implements Serializable {
     private String name;
     private String model;
     private String vehicleClass;

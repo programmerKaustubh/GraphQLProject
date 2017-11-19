@@ -19,8 +19,8 @@ import java.util.List;
 public class MyVehicleRecyclerViewAdapter extends RecyclerView.Adapter<MyVehicleRecyclerViewAdapter.ViewHolder> {
 
     private final List<AllVehicleQuery.Vehicle> mValues;
-    VehicleClickListner vehicleClickListner;
-    Context context;
+    private final VehicleClickListner vehicleClickListner;
+    private final Context context;
     public MyVehicleRecyclerViewAdapter(List<AllVehicleQuery.Vehicle> items, Context context, VehicleClickListner vehicleClickListner) {
         mValues = items;
         this.context = context;

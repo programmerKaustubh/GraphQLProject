@@ -20,8 +20,6 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllPeopleQuery;
-import com.kmema.android.graphqlproject.Film.FilmDataModel;
-import com.kmema.android.graphqlproject.Film.FilmDetailFragment;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
 
@@ -78,11 +76,6 @@ public class PersonFragment extends Fragment implements PersonClickListner {
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-    @Override
     public void personRecyclerViewClickListener(View view, AllPeopleQuery.person person) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         PersonDetailFragment personDetailFragment = new PersonDetailFragment();
@@ -103,7 +96,7 @@ public class PersonFragment extends Fragment implements PersonClickListner {
         personDetailFragment.show(fragmentManager, "personDialog");
     }
 
-    void getPeople(final View view) {
+    private void getPeople(final View view) {
         MyApolloClient.getMyApolloClient().query(
                 AllPeopleQuery.builder().build()).enqueue(new ApolloCall.Callback<AllPeopleQuery.Data>() {
             @Override
@@ -141,7 +134,7 @@ public class PersonFragment extends Fragment implements PersonClickListner {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            recyclerView.setAdapter(new MyPersonRecyclerViewAdapter(people, getContext()));
+            recyclerView.setAdapter(new MyPersonRecyclerViewAdapter(people, getContext(), this));
         }
     }
 }

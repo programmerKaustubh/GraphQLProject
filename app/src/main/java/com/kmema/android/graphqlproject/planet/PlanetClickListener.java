@@ -8,6 +8,6 @@ import com.kmema.android.graphqlproject.AllPlanetQuery;
  * Created by kmema on 11/16/2017.
  */
 
-public interface PlanetClickListener {
+interface PlanetClickListener {
     void planetRecyclerViewClickListener(View view, AllPlanetQuery.Planet planet);
 }

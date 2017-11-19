@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by kmema on 11/17/2017.
  */
 
-public class FilmDataModel implements Serializable{
+class FilmDataModel implements Serializable{
     private String title;
     private String episodeID;
     private String openingCrawl;

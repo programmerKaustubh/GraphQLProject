@@ -5,6 +5,6 @@ import android.view.View;
 import com.kmema.android.graphqlproject.AllPeopleQuery;
 
 
-public interface PersonClickListner {
+interface PersonClickListner {
     void personRecyclerViewClickListener(View view, AllPeopleQuery.person person);
 }

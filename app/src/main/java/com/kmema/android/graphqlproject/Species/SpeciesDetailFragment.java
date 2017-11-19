@@ -55,7 +55,7 @@ public class SpeciesDetailFragment extends DialogFragment {
     TextView textViewEditedSpecies;
 
 
-    Unbinder unbinder;
+    private Unbinder unbinder;
 
     @Nullable
     @Override

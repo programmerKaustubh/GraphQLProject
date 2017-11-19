@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class MyNodeRecyclerViewAdapter extends RecyclerView.Adapter<MyNodeRecyclerViewAdapter.ViewHolder> {
 
 
-    ArrayList<String> mList;
+    private final ArrayList<String> mList;
     private static NodeClickListener nodeClickListener;
-    private ArrayList<Integer> colorList;
+    private final ArrayList<Integer> colorList;
     MyNodeRecyclerViewAdapter(ArrayList<String> mList, ArrayList<Integer> colorList, NodeClickListener mainActivity) {
         this.mList = mList;
         nodeClickListener = mainActivity;
@@ -43,7 +43,7 @@ public class MyNodeRecyclerViewAdapter extends RecyclerView.Adapter<MyNodeRecycl
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView mNodeName;
+        final TextView mNodeName;
         ViewHolder(View itemView) {
             super(itemView);
             mNodeName = itemView.findViewById(R.id.mTextViewNode);

@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by kmema on 11/17/2017.
  */
 
-public class SpeciesDataModel implements Serializable {
+class SpeciesDataModel implements Serializable {
     private String name;
     private String classification;
     private String designation;

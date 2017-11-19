@@ -19,8 +19,8 @@ import java.util.List;
  *  */
 public class MyPlanetRecyclerViewAdapter extends RecyclerView.Adapter<MyPlanetRecyclerViewAdapter.ViewHolder> {
     private final List<AllPlanetQuery.Planet> mValues;
-    private Context context;
-    private PlanetClickListener planetClickListener;
+    private final Context context;
+    private final PlanetClickListener planetClickListener;
 
     MyPlanetRecyclerViewAdapter(List<AllPlanetQuery.Planet> items, Context context, PlanetClickListener planetClickListener) {
         mValues = items;

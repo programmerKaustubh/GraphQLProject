@@ -19,8 +19,6 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllPlanetQuery;
-import com.kmema.android.graphqlproject.Film.FilmDataModel;
-import com.kmema.android.graphqlproject.Film.FilmDetailFragment;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
 
@@ -72,10 +70,6 @@ public class PlanetFragment extends Fragment implements PlanetClickListener {
         window.setStatusBarColor(getResources().getColor(R.color.colorPurple));
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
     @Override
     public void planetRecyclerViewClickListener(View view, AllPlanetQuery.Planet planet) {
 

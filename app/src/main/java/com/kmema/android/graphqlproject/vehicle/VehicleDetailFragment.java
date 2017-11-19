@@ -42,6 +42,7 @@ public class VehicleDetailFragment extends DialogFragment {
     TextView textViewCrew;
 
     @BindView(R.id.textViewPassengers)
+
     TextView textViewPassengers;
 
     @BindView(R.id.textViewmaxAtmospheringSpeed)
@@ -54,19 +55,21 @@ public class VehicleDetailFragment extends DialogFragment {
     TextView textViewConsumables;
 
     @BindView(R.id.textViewCreatedVehicle)
+
+
     TextView textViewCreated;
 
     @BindView(R.id.textViewEditedVehicle)
     TextView textViewEdited;
 
-    Unbinder unbinder;
+    private Unbinder unbinder;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.detail_dialog_vehicle,container);
-        unbinder = ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.detail_dialog_vehicle, container);
+        unbinder = ButterKnife.bind(this, view);
         VehicleDataModel vehicleDataModel = (VehicleDataModel) getArguments().getSerializable("VehicleDataModel");
         textViewVehicleName.setText(vehicleDataModel.getName());
         textViewVehicleName.setSelected(true);
@@ -95,15 +98,16 @@ public class VehicleDetailFragment extends DialogFragment {
         textViewEdited.setText(vehicleDataModel.getEdited());
         return view;
     }
+
     @Override
     public void onStart() {
-        if(getDialog()==null)
-        {
+        if (getDialog() == null) {
             return;
         }
         getDialog().getWindow().setWindowAnimations(R.style.DialogSlide);
         super.onStart();
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
