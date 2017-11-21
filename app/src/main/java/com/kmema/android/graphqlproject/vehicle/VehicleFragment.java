@@ -100,16 +100,6 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
         vehicleDetailFragment.show(fragmentManager,"vehicleDialog");
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     private static final String TAG = "Person Fragment: ";
     private void getVehicle(final View view) {
         MyApolloClient.getMyApolloClient().query(
@@ -136,10 +126,9 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection"+ e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection "+ e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
-                Log.e(TAG, "ON RESPONSE ERROR" + e.getLocalizedMessage());
             }
         });
 

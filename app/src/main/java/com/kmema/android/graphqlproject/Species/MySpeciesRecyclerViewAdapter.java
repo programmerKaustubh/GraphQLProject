@@ -64,11 +64,11 @@ public class MySpeciesRecyclerViewAdapter extends RecyclerView.Adapter<MySpecies
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mSpeciesName;
-        public AllSpeciesQuery.Species mItem;
+        final View mView;
+        final TextView mSpeciesName;
+        AllSpeciesQuery.Species mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mSpeciesName = view.findViewById(R.id.textViewSpeciesGrid);

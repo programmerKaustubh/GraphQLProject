@@ -1,7 +1,5 @@
 package com.kmema.android.graphqlproject;
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +51,6 @@ public class MyNodeRecyclerViewAdapter extends RecyclerView.Adapter<MyNodeRecycl
         @Override
         public void onClick(View view) {
             nodeClickListener.recyclerViewClickListener(view, getLayoutPosition());
-            Log.e("ERROR","CLICKED");
         }
     }
 }

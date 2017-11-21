@@ -21,7 +21,6 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.kmema.android.graphqlproject.AllFilmQuery;
 import com.kmema.android.graphqlproject.NetworkClient.MyApolloClient;
 import com.kmema.android.graphqlproject.R;
-
 import java.util.List;
 
 import javax.annotation.Nonnull;

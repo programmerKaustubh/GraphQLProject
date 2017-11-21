@@ -20,6 +20,15 @@ public class MainActivity extends AppCompatActivity implements NodeClickListener
     private static final String CURRENT_FRAGMENT_NUMBER_KEY = "currentFragmentNumber";
     private static int currentFragment;
 
+
+    /**
+     * @param savedInstanceState to save the instance of old state of activity and related data
+     *
+     * Loads savedInstanceState or if that is null loads 0th fragment, that is person fragment
+     *                           which loads people information
+     *
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements NodeClickListener
             currentFragment = savedInstanceState.getInt(CURRENT_FRAGMENT_NUMBER_KEY);
         } else {
             updateCurrentFragment(0);
-
         }
         colorList = new ArrayList<>();
         colorList.add(0, R.color.colorGreen);

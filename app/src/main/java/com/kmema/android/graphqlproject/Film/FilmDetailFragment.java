@@ -2,7 +2,6 @@ package com.kmema.android.graphqlproject.Film;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +46,6 @@ public class FilmDetailFragment extends android.support.v4.app.DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_dialog_film, container);
         unbinder = ButterKnife.bind(this, view);
-        String NO_DATA = "NO DATA";
         FilmDataModel filmDataModel = (FilmDataModel) getArguments().getSerializable("FilmDataModel");
          textViewTitle.setText(filmDataModel.getTitle());
         textViewTitle.setSelected(true);

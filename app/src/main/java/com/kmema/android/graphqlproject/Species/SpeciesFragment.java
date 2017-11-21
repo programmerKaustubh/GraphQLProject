@@ -74,16 +74,6 @@ public class SpeciesFragment extends Fragment implements SpeciesClickListner{
         window.setStatusBarColor(getResources().getColor(R.color.colorBlue));
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     @Override
     public void SpeciesRecyclerViewClickListener(View view, AllSpeciesQuery.Species species) {
 
@@ -135,10 +125,9 @@ public class SpeciesFragment extends Fragment implements SpeciesClickListner{
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection"+ e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection "+ e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
-                Log.e(TAG, "ON RESPONSE ERROR" + e.getLocalizedMessage());
             }
         });
 

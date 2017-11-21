@@ -1,3 +1,4 @@
+
 package com.kmema.android.graphqlproject.person;
 
 import android.content.Context;
@@ -120,10 +121,9 @@ public class PersonFragment extends Fragment implements PersonClickListner {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection" + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getBaseContext(), "Check Network Connection " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
-                Log.e(TAG, "ON RESPONSE ERROR" + e.getLocalizedMessage());
             }
         });
     }

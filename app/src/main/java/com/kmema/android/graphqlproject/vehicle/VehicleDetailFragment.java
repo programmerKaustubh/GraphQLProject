@@ -18,6 +18,10 @@ import butterknife.Unbinder;
  * Created by kmema on 11/17/2017.
  */
 
+
+/**
+ * {@link VehicleDetailFragment} Displays Vehicle information in DialogFragment with left to right transition animation
+ */
 public class VehicleDetailFragment extends DialogFragment {
 
     @BindView(R.id.textViewNameVehicle)
@@ -55,8 +59,6 @@ public class VehicleDetailFragment extends DialogFragment {
     TextView textViewConsumables;
 
     @BindView(R.id.textViewCreatedVehicle)
-
-
     TextView textViewCreated;
 
     @BindView(R.id.textViewEditedVehicle)
@@ -98,6 +100,10 @@ public class VehicleDetailFragment extends DialogFragment {
         textViewEdited.setText(vehicleDataModel.getEdited());
         return view;
     }
+
+    /**
+     * onStart displaying animation for VehicleFragment
+     */
 
     @Override
     public void onStart() {

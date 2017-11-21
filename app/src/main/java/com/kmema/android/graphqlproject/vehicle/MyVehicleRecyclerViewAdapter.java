@@ -57,11 +57,11 @@ public class MyVehicleRecyclerViewAdapter extends RecyclerView.Adapter<MyVehicle
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mVehicleName;
-        public AllVehicleQuery.Vehicle mItem;
+        final View mView;
+        final TextView mVehicleName;
+        AllVehicleQuery.Vehicle mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mVehicleName = view.findViewById(R.id.textViewVehicleGrid);
