@@ -1,4 +1,4 @@
-# BeatBox - *MusicPlayer by Icebergs*
+# GraphQLProject
 -----------------------
 
 **What can it do**
