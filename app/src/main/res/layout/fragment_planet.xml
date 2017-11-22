@@ -2,7 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -13,12 +15,12 @@
             android:contentDescription="@string/planet"
             android:src="@drawable/ic_planet"
             android:id="@+id/imageViewPlanetGrid"
-            android:background="@color/colorPurpleLight"
+            android:background="@drawable/image_background_purple"
             />
 
         <TextView
             style="@style/fragmentTextStyle"
-            android:background="@color/colorPurple"
+            android:background="@drawable/image_background_purple_bottom"
             android:id="@+id/textViewPlanetGrid"
             android:layout_below="@+id/imageViewPlanetGrid"
             tools:text="Kaustubh"/>

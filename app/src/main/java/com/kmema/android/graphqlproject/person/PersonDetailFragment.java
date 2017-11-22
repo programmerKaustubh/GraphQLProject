@@ -1,4 +1,6 @@
 package com.kmema.android.graphqlproject.person;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -52,6 +54,7 @@ public class PersonDetailFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_dialog_person, container);
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         unbinder = ButterKnife.bind(this, view);
         PersonDataModel personDataModel = (PersonDataModel) getArguments().getSerializable("PersonDataModel");
         textViewName.setText(personDataModel.getName());
@@ -92,4 +95,6 @@ public class PersonDetailFragment extends DialogFragment {
         getDialog().getWindow().setWindowAnimations(R.style.DialogSlide);
         super.onStart();
     }
+
+
 }

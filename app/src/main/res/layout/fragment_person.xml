@@ -2,7 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -13,11 +15,11 @@
             android:contentDescription="@string/person"
             android:src="@drawable/ic_person"
             android:id="@+id/imageViewGrid"
-            android:background="@color/colorGreen" />
+            android:background="@drawable/image_background_green" />
 
         <TextView
             style="@style/fragmentTextStyle"
-            android:background="@color/colorGreenDark"
+            android:background="@drawable/image_background_green_bottom"
             android:id="@+id/textViewPersonGrid"
             android:layout_below="@+id/imageViewGrid"
             tools:text="Kaustubh"/>

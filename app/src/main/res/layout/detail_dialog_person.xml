@@ -3,51 +3,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp">
+    android:padding="4dp"
+    android:background="@drawable/dialog_rounded">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
-        android:background="@color/colorGreenDark"
+        android:background="@drawable/image_background_green"
         android:fitsSystemWindows="true"
         android:src="@drawable/ic_person"
         android:contentDescription="@string/person_image" />
 
+    <TextView
+        android:gravity="center"
+        android:id="@+id/textViewName"
+        style="@style/DetailViewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView"
+        android:background="@drawable/color_gradient"
+        android:fontFamily="casual"
+        android:textSize="32dp"
+        tools:text="Name" />
 
     <LinearLayout
-        android:paddingTop="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/textViewName"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="4dp">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name" />
-            <TextView
-                android:id="@+id/textViewName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/DetailViewText"
-                tools:text="Name" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:paddingTop="4dp"
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
             <TextView
                 android:id="@+id/textView12"
@@ -57,18 +52,18 @@
 
             <TextView
                 android:id="@+id/textViewBirthyear"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="BirthDate:" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
 
             <TextView
@@ -78,19 +73,19 @@
 
             <TextView
                 android:id="@+id/textViewEyeColor"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="EyesColor" />
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
             <TextView
                 android:id="@+id/textView11"
@@ -100,19 +95,19 @@
 
             <TextView
                 android:id="@+id/textViewGender"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Genderr" />
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
             <TextView
                 android:id="@+id/textView10"
@@ -122,19 +117,19 @@
 
             <TextView
                 android:id="@+id/textViewHairColor"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="HairColor" />
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
             <TextView
                 android:id="@+id/textView9"
@@ -144,20 +139,20 @@
 
             <TextView
                 android:id="@+id/textViewHeight"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Height" />
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:id="@+id/linearLayout4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
 
             <TextView
@@ -168,19 +163,19 @@
 
             <TextView
                 android:id="@+id/textViewMass"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Mass" />
 
         </LinearLayout>
 
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
 
             <TextView
@@ -191,44 +186,50 @@
 
             <TextView
                 android:id="@+id/textViewSkinColor"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="SkinColor" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/created" />
+
             <TextView
                 android:id="@+id/textViewCreated"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Created: " />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edited" />
+
             <TextView
                 android:id="@+id/textViewEdited"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Edited" />
         </LinearLayout>
     </LinearLayout>

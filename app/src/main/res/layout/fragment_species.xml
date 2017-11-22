@@ -2,7 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -11,11 +13,11 @@
             android:contentDescription="@string/species"
             android:src="@drawable/ic_species"
             android:id="@+id/imageViewSpeciesGrid"
-            android:background="@color/colorBlue" />
+            android:background="@drawable/image_background_blue" />
 
         <TextView
             style="@style/fragmentTextStyle"
-            android:background="@color/colorBlue"
+            android:background="@drawable/image_background_blue_bottom"
             android:id="@+id/textViewSpeciesGrid"
             android:layout_below="@+id/imageViewSpeciesGrid"
             tools:text="Kaustubh"/>

@@ -3,238 +3,264 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp">
+    android:padding="4dp"
+    android:background="@drawable/dialog_rounded">
     <ImageView
         android:id="@+id/imageViewVehicle"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
-        android:background="@color/colorOrangeLight"
+        android:background="@drawable/image_background_red"
         android:fitsSystemWindows="true"
         android:src="@drawable/ic_vehicle"
         android:contentDescription="@string/vehicle_image" />
+    <TextView
+        android:gravity="center"
+        android:id="@+id/textViewNameVehicle"
+        style="@style/DetailViewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/imageViewVehicle"
+        android:background="@drawable/color_gradient_red"
+        android:fontFamily="casual"
+        android:textSize="32sp"
+        tools:text="Name" />
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewVehicle"
+        android:layout_below="@+id/textViewNameVehicle"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
+
+
+
         <LinearLayout
-            android:paddingTop="4dp"
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name" />
-            <TextView
-                style="@style/DetailViewText"
-                android:id="@+id/textViewNameVehicle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Name" />
-        </LinearLayout>
-        <LinearLayout
-            android:paddingTop="4dp"
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/model" />
+
             <TextView
                 android:id="@+id/textViewModelVehicle"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
-                tools:text="Model"/>
+                tools:text="Model" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/vehicle_class" />
+
             <TextView
                 android:id="@+id/textViewvehicleClass"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailViewText"
                 tools:text="Vehicle Class" />
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/manufacturers" />
+
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewManufacturers"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Manufacturers" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cost_in_credits" />
+
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewCostInCredits"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Cost In Credits" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:id="@+id/linearLayout4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/length" />
+
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewLength"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Length" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/crew" />
 
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewCrew"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Crew" />
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/passengers" />
+
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewPassengers"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Passengers" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/max_atmosphering_speed" />
 
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewmaxAtmospheringSpeed"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Max Atmosphering Speed" />
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cargo_capacity" />
 
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewcargoCapacity"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Cargo Capacity" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/consumables" />
 
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewConsumables"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Consumables" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/created" />
+
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewCreatedVehicle"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Created" />
         </LinearLayout>
+
         <LinearLayout
-            android:paddingTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edited" />
+
             <TextView
-                style="@style/DetailViewText"
                 android:id="@+id/textViewEditedVehicle"
+                style="@style/DetailViewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Edited" />
