@@ -17,14 +17,13 @@ The Star Wars GraphQL API includes queries for the following objects, all of whi
 
 Displaying the information using standard Master/detail flow. Master View displays a grid of Film objects using RecyclerView, while the detail view is displayed using DialogFragments.
 
-Technology/Libraries Used:
-Apollo client: https://github.com/apollographql/apollo-client
-Butter Knife 2.0: https://github.com/JakeWharton/butterknife
-GraphQl: http://graphql.org/
-(For Local Data-base): https://github.com/graphql/swapi-graphql
-npm (package manager): https://www.npmjs.com/
-
-
+**Technology/Libraries Used:**
+--
+ - Apollo client: https://github.com/apollographql/apollo-client Butter
+ - Knife 2.0: https://github.com/JakeWharton/butterknife GraphQl:
+ - http://graphql.org/ (For Local Data-base):
+ - https://github.com/graphql/swapi-graphql
+ - npm (package manager):https://www.npmjs.com/
 
 **Aim**
 ---
