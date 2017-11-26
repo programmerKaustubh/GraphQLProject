@@ -77,7 +77,7 @@ public class VehicleDetailFragment extends DialogFragment {
         textViewVehicleName.setSelected(true);
         textViewModelModel.setText(vehicleDataModel.getModel());
         textViewModelModel.setSelected(true);
-        textViewVehicleName.setText(vehicleDataModel.getVehicleClass());
+        textViewVehicleClass.setText(vehicleDataModel.getVehicleClass());
         textViewVehicleClass.setSelected(true);
         textViewManufacturers.setText(vehicleDataModel.getManufacturers());
         textViewManufacturers.setSelected(true);

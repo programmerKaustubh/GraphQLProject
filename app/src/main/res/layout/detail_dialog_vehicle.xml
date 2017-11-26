@@ -15,16 +15,16 @@
         android:src="@drawable/ic_vehicle"
         android:contentDescription="@string/vehicle_image" />
     <TextView
-        android:gravity="center"
+
+        android:textColor="@color/colorWhite"
         android:id="@+id/textViewNameVehicle"
         style="@style/DetailViewText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/imageViewVehicle"
-        android:background="@drawable/color_gradient_red"
-        android:fontFamily="casual"
-        android:textSize="32sp"
+        android:background="@drawable/image_background_red_bottom"
+        android:textSize="28sp"
         tools:text="Name" />
     <LinearLayout
         android:id="@+id/linearLayout5"

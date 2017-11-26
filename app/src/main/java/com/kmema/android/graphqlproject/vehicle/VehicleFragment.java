@@ -100,7 +100,6 @@ public class VehicleFragment extends Fragment implements  VehicleClickListner{
         vehicleDetailFragment.show(fragmentManager,"vehicleDialog");
     }
 
-    private static final String TAG = "Person Fragment: ";
     private void getVehicle(final View view) {
         MyApolloClient.getMyApolloClient().query(
                 AllVehicleQuery.builder().build()).enqueue(new ApolloCall.Callback<AllVehicleQuery.Data>() {

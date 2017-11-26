@@ -12,7 +12,7 @@ public class MyApolloClient {
      * user supposed to upload their IP address (at BASE_URL) and port address before running this application
     run npm start command in Node.js command prompt inside respective root folder
     copy your local address and replace with this base address*/
-    private static final String BASE_URL = "http://192.168.0.36:49479";
+    private static final String BASE_URL = "http://192.168.0.36:54869";
 
     public static ApolloClient getMyApolloClient() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();

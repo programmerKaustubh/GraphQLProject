@@ -19,16 +19,15 @@
         android:contentDescription="@string/person_image" />
 
     <TextView
-        android:background="@drawable/color_gradient_orange"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/image_background_orange_bottom"
         android:id="@+id/textViewTitle"
         style="@style/DetailViewText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageViewFilm"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:textSize="32sp"
+        android:textSize="28sp"
         tools:text="Title" />
     <LinearLayout
         android:layout_width="wrap_content"

@@ -16,16 +16,15 @@
         android:contentDescription="@string/person_image" />
 
     <TextView
-        android:gravity="center"
-        android:fontFamily="casual"
-        android:background="@drawable/color_gradient_purple"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/image_background_purple_bottom"
         android:id="@+id/textViewNamePlanet"
         style="@style/DetailViewText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageViewPlanet"
-        android:textSize="32sp"
+        android:textSize="28sp"
         tools:text="Name" />
 
     <LinearLayout
