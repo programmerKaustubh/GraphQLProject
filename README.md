@@ -19,15 +19,30 @@ Displaying the information using standard Master/detail flow. Master View displa
 
 **Technology/Libraries Used:**
 --
- - Apollo client: https://github.com/apollographql/apollo-client
- - Butter Knife 2.0: https://github.com/JakeWharton/butterknife
- - GraphQl: http://graphql.org/
- - (For Local Data-base): https://github.com/graphql/swapi-graphql
- - npm (package manager): https://www.npmjs.com/
+ 1. Apollo client: https://github.com/apollographql/apollo-client
+ 2. Butter Knife 2.0: https://github.com/JakeWharton/butterknife
+ 3. GraphQl: http://graphql.org/
+ 4. (For Local Data-base): https://github.com/graphql/swapi-graphql
+ 5. npm (package manager): https://www.npmjs.com/
 
-**Aim**
+**How To Run this projects**
 ---
+(Make sure you have npm installed to install and run Star Wars Swapi-API)
 
+ 1. Download this project to your computer
+ 2. Download Facebook's Star Wars Swapi-API: https://github.com/graphql/swapi-graphql (check some previous issues, if you having same issue(s) while running this project on window operating system)
+ 3. In Node.js command prompt change directory to downloaded Star Wars directory
+ 4. Install Star Wars on your computer by running following command in npm: 
+> `npm install`
+
+ 5. And run with:
+> `npm run`
+
+ 6. copy and paste link displayed in your Node.js command prompt to Apollo Client's BASE_URL
+    (check your IP address to replace with the localhost text in your Android project)
+> `http://localhost:3000/graphql`
+
+ 7. Run the Android project
 
 **Getting Started**
 -------------------
@@ -53,4 +68,5 @@ This sample uses the Gradle build system. To build this project, use the "gradle
 ------------------------
 
  - kaustubhmemane.com
+
 
