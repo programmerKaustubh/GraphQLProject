@@ -3,7 +3,7 @@
 
 **What can it do**
 --------------
-Fetching a data from Facebook's sample GraphQL schema and local database of Star Wars objects to display in RecyclerView(Grids) uing fragments and Activity.
+Fetching a data from Facebook's sample GraphQL schema and the local database of Star Wars objects to display in RecyclerView(Grids) using fragments and Activity.
 
 The Star Wars GraphQL API includes queries for the following objects, all of which directly inherits from the 'Node' Object:
 
