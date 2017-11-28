@@ -53,10 +53,10 @@ This sample uses the Gradle build system. To build this project, use the "gradle
 
 **Screenshots**
 ---------------
-
-![screener_1511335116608](https://user-images.githubusercontent.com/25395705/33114634-af24d950-cf2b-11e7-9669-f641fc6d8c54.png)
-![screener_1511334794223](https://user-images.githubusercontent.com/25395705/33114635-af3b6558-cf2b-11e7-90b9-798ca3a21c30.png)
-![screener_1511335874035](https://user-images.githubusercontent.com/25395705/33114992-506a43ee-cf2d-11e7-982f-2e691408ae84.png)
+![screener_1511841434522](https://user-images.githubusercontent.com/25395705/33304682-3170b8d8-d3d8-11e7-8a2b-633838c2ed74.png)
+![screener_1511841350247](https://user-images.githubusercontent.com/25395705/33304683-31f83f1a-d3d8-11e7-8957-e5da8b0b44fb.png)
+![screener_1511841227634](https://user-images.githubusercontent.com/25395705/33304684-3211027a-d3d8-11e7-9cac-5316580cb184.png)
+![screener_1511841136862](https://user-images.githubusercontent.com/25395705/33304685-322a20f2-d3d8-11e7-8659-99c38542b3b1.png)
 ![ezgif com-video-to-gif 3](https://user-images.githubusercontent.com/25395705/33102881-dd8fd248-ceec-11e7-80c9-51dc6bab494c.gif)
 ![ezgif com-video-to-gif 7](https://user-images.githubusercontent.com/25395705/33103712-f46b0d2a-cef1-11e7-9f13-37da17da4918.gif)
 ![ezgif com-video-to-gif 6](https://user-images.githubusercontent.com/25395705/33103713-f4858f92-cef1-11e7-8077-818368fe1ac7.gif)
